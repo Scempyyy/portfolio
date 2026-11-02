@@ -10,7 +10,7 @@
 ## Featured work
 
 ### 🔐 Privacy Auditor
-An Android privacy and security auditing project focused on helping people understand app permissions, privacy risks, and network behavior. The broader project includes APK and URL analysis, privacy scoring, and locally exportable reports.
+An Android privacy and security auditing platform exploring app privacy, permission risks, and network behavior. The project includes APK and URL analysis, privacy scoring, and locally exportable reports.
 
 ### 🚘 Driver Security System
 A computer-vision safety system that monitors driver attention using facial landmarks, eye behavior, and related signals.
@@ -18,9 +18,9 @@ A computer-vision safety system that monitors driver attention using facial land
 **Stack:** Python · OpenCV · MediaPipe
 
 ### 🤖 EvoRyz — Personal Growth & Accountability
-A personal-growth app built around daily routines, accountability, journaling, habits, tasks, and an AI companion. The app has been designed for Solo, Duo, and Team workflows.
+A personal-growth and accountability app with **Solo, Duo, and Team** modes. Features include Chat, Daily, To Do’s, Habits, meals, journaling, and AI-assisted workflows. Meals are integrated into Daily, and the app uses an EvoRyz day boundary at 2 AM.
 
-**Stack:** Supabase · Authentication · Realtime · AI Edge Functions
+**Stack:** Expo · React Native · Supabase Auth · PostgreSQL/RLS · Realtime · AI server-side function
 
 ### 🐇 Own AI Assistant
 A personal Python assistant exploring local AI and practical everyday utility.
@@ -55,7 +55,7 @@ My personal portfolio, bringing together projects, experiments, and web developm
 
 - **Languages:** Python, C++, Java, JavaScript, HTML, CSS
 - **AI & Computer Vision:** AI integrations, OpenCV, MediaPipe
-- **App & Backend:** Supabase, authentication, databases, realtime features
+- **App & Backend:** Expo, React Native, Supabase, authentication, databases, realtime features
 - **Web:** Frontend development and interactive interfaces
 - **Tools:** Git, GitHub, Linux
 
