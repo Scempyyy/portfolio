@@ -8,8 +8,30 @@
 <title>Scempyy // Pranav Sharma — Cyber Command Portfolio</title>
 <link rel="stylesheet" href="assets/fonts/fonts.css">
 <link rel="stylesheet" href="assets/fa/all.min.css">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=20261102_cyber_v1">
 <link rel="icon" href="assets/scempyy-logo.svg" type="image/svg+xml">
+<style>
+/* Critical Failsafe: Modals must NEVER spill into document flow */
+.cyber-modal, .terminal-modal, .project-detail-drawer, .info-screen {
+  display: none !important;
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 50 !important;
+}
+.cyber-modal.open, .project-detail-drawer.open, .info-screen.open {
+  display: block !important;
+}
+.terminal-modal.open {
+  display: flex !important;
+}
+.contacts-panel {
+  position: fixed !important;
+  transform: translateX(100%) !important;
+}
+.contacts-panel.open {
+  transform: none !important;
+}
+</style>
 </head>
 <body class="cyber-theme">
 
@@ -689,6 +711,6 @@
 <!-- Click-to-describe Tooltip -->
 <div class="desc-box" id="desc-box"></div>
 
-<script src="script.js"></script>
+<script src="script.js?v=20261102_cyber_v1"></script>
 </body>
 </html>
