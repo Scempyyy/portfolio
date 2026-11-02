@@ -1,70 +1,36 @@
+<div align="center">
+
 # Scempyy — Developer & Builder
+### AI · Security · Mobile · Computer Vision
 
-> I build practical software across AI, security, web, and personal productivity.
+I build practical software, learn by shipping, and care about how systems work under the hood.
 
-🌐 **Portfolio:** [scempyy.me](https://scempyy.me)  
-💻 **GitHub:** [@Scempyyy](https://github.com/Scempyyy)
+[Portfolio](https://scempyy.me) · [GitHub](https://github.com/Scempyy)
 
----
-
-## Featured work
-
-### 🔐 Privacy Auditor
-An Android privacy and security auditing platform exploring app privacy, permission risks, and network behavior. The project includes APK and URL analysis, privacy scoring, and locally exportable reports.
-
-### 🚘 Driver Security System
-A computer-vision safety system that monitors driver attention using facial landmarks, eye behavior, and related signals.
-
-**Stack:** Python · OpenCV · MediaPipe
-
-### 🤖 EvoRyz — Personal Growth & Accountability
-A personal-growth and accountability app with **Solo, Duo, and Team** modes. Features include Chat, Daily, To Do’s, Habits, meals, journaling, and AI-assisted workflows. Meals are integrated into Daily, and the app uses an EvoRyz day boundary at 2 AM.
-
-**Stack:** Expo · React Native · Supabase Auth · PostgreSQL/RLS · Realtime · AI server-side function
-
-### 🐇 Own AI Assistant
-A personal Python assistant exploring local AI and practical everyday utility.
-
-### 🌐 Web Development Projects
-Interactive web experiences and visual systems built with frontend technologies.
-
-**Stack:** HTML · CSS · JavaScript
-
-### 📚 AI Study Buddy
-An experimental AI-powered study companion for asking questions, organizing notes, and supporting revision.
-
-### 🛡️ Phishing Detector
-A security/ML experiment exploring suspicious URLs and website patterns to help identify potential phishing risks.
-
-### 📊 Lifestyle Tracker
-A lightweight C++ program for logging habits and routines, then reviewing the resulting data.
-
-**Stack:** C++
-
-### 🎬 Content Creation
-Gaming and creator-focused work. This portfolio entry is archived.
-
-### 🧑‍💻 Portfolio Website
-My personal portfolio, bringing together projects, experiments, and web development work.
-
-**Live:** [scempyy.me](https://scempyy.me)
+</div>
 
 ---
 
-## What I work with
+## Featured projects
 
-- **Languages:** Python, C++, Java, JavaScript, HTML, CSS
-- **AI & Computer Vision:** AI integrations, OpenCV, MediaPipe
-- **App & Backend:** Expo, React Native, Supabase, authentication, databases, realtime features
-- **Web:** Frontend development and interactive interfaces
-- **Tools:** Git, GitHub, Linux
+| Project | What it explores | Stack |
+|---|---|---|
+| [Android Privacy Auditor](https://github.com/Scempyy/privacy-auditor) | Local-first static APK analysis, permission review, tracker signatures, explainable scoring | Python, FastAPI, Next.js, Kotlin |
+| [NeuroDrive AI](https://github.com/Scempyy/driver-security-system) | Driver attention signals, computer vision, and risk alerts | Python, OpenCV, MediaPipe, TypeScript |
+| [EvoRyz](https://github.com/Scempyy/EvoRyz) | Personal growth and accountability for solo, duo, and team workflows | Expo, React Native, Supabase |
+| [RoboRabbit](https://github.com/Scempyy/Roborabbit) | Voice-first personal assistant and conversational AI experiments | Python, FastAPI, Piper |
+| [Web Development Projects](https://github.com/Scempyy/web-development-projects) | Frontend experiments and interactive interfaces | HTML, CSS, JavaScript |
 
-## Repositories
+## Other experiments
+- [AI Study Buddy](https://github.com/Scempyy/ai-study-buddy) — study-assistant concept
+- [Phishing Detector](https://github.com/Scempyy/phishing-detector) — suspicious URL and phishing indicators
+- [Content Creation](https://github.com/Scempyy/content-creation) — creator workflow and visual storytelling archive
 
-Browse my [GitHub repositories](https://github.com/Scempyyy?tab=repositories) for source code, experiments, and project updates.
-
-> Project descriptions summarize the current portfolio and project notes. Individual repositories will contain implementation details, setup instructions, and status as their code is published.
+## Toolbox
+**Languages:** Python, Java, JavaScript, TypeScript, C++, Kotlin  
+**Build:** React Native, Expo, Next.js, FastAPI, Supabase  
+**Interests:** AI systems, privacy engineering, computer vision, Linux
 
 ---
 
-*Built with curiosity. Improved one commit at a time.*
+*Curious by default. Building one meaningful commit at a time.*
