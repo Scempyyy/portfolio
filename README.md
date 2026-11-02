@@ -1,36 +1,56 @@
 <div align="center">
 
-# Scempyy — Developer & Builder
-### AI · Security · Mobile · Computer Vision
+# Scempyy — Personal Portfolio & Engineering Showcase
+### Mobile Systems • Local AI • Privacy Engineering • Computer Vision
 
-I build practical software, learn by shipping, and care about how systems work under the hood.
+**Live Portfolio:** [scempyy.me](https://scempyy.me) • **Author:** [Pranav Sharma (@Scempyyy)](https://github.com/Scempyyy)
 
-[Portfolio](https://scempyy.me) · [GitHub](https://github.com/Scempyy)
+[![Live Demo](https://img.shields.io/badge/Live-scempyy.me-0284C7?style=flat-square&logo=google-chrome&logoColor=white)](https://scempyy.me)
+[![CV/Resume](https://img.shields.io/badge/Resume-CV_PDF-0EA5E9?style=flat-square&logo=adobe-acrobat-reader&logoColor=white)](https://scempyy.me/assets/Pranav_Sharma_CV.pdf)
+[![GitHub](https://img.shields.io/badge/GitHub-Scempyyy-24292F?style=flat-square&logo=github&logoColor=white)](https://github.com/Scempyyy)
+[![Email](https://img.shields.io/badge/Email-business.scempyy%40outlook.com-6366F1?style=flat-square&logo=microsoft-outlook&logoColor=white)](mailto:business.scempyy@outlook.com)
 
 </div>
 
 ---
 
-## Featured projects
+## ⚡ Overview
 
-| Project | What it explores | Stack |
-|---|---|---|
-| [Android Privacy Auditor](https://github.com/Scempyy/privacy-auditor) | Local-first static APK analysis, permission review, tracker signatures, explainable scoring | Python, FastAPI, Next.js, Kotlin |
-| [NeuroDrive AI](https://github.com/Scempyy/driver-security-system) | Driver attention signals, computer vision, and risk alerts | Python, OpenCV, MediaPipe, TypeScript |
-| [EvoRyz](https://github.com/Scempyy/EvoRyz) | Personal growth and accountability for solo, duo, and team workflows | Expo, React Native, Supabase |
-| [RoboRabbit](https://github.com/Scempyy/Roborabbit) | Voice-first personal assistant and conversational AI experiments | Python, FastAPI, Piper |
-| [Web Development Projects](https://github.com/Scempyy/web-development-projects) | Frontend experiments and interactive interfaces | HTML, CSS, JavaScript |
+This repository hosts the source code for [scempyy.me](https://scempyy.me)—a responsive, cyberpunk-inspired developer portfolio designed to showcase production applications, technical writeups, and systems engineering projects.
 
-## Other experiments
-- [AI Study Buddy](https://github.com/Scempyy/ai-study-buddy) — study-assistant concept
-- [Phishing Detector](https://github.com/Scempyy/phishing-detector) — suspicious URL and phishing indicators
-- [Content Creation](https://github.com/Scempyy/content-creation) — creator workflow and visual storytelling archive
-
-## Toolbox
-**Languages:** Python, Java, JavaScript, TypeScript, C++, Kotlin  
-**Build:** React Native, Expo, Next.js, FastAPI, Supabase  
-**Interests:** AI systems, privacy engineering, computer vision, Linux
+Built with vanilla JavaScript, modular CSS, custom ambient audio triggers, and an interactive agent-card modal system.
 
 ---
 
-*Curious by default. Building one meaningful commit at a time.*
+## 🌟 Featured Engineering Projects
+
+| Project | Description | Tech Stack | Repository |
+|---|---|---|:---:|
+| **[EvoRyz](https://github.com/Scempyyy/EvoRyz)** | Production personal growth and accountability app featuring a 100-day Winter Arc challenge engine, encrypted journal, and offline-first storage. | `React Native` `Expo` `Supabase` `TypeScript` | [View Repo](https://github.com/Scempyyy/EvoRyz) |
+| **[Android Privacy Auditor](https://github.com/Scempyyy/privacy-auditor)** | Local-first static analysis platform for Android APKs with manifest decoding, permission auditing, tracker fingerprinting, and risk scoring. | `Python` `FastAPI` `Next.js` `Jetpack Compose` | [View Repo](https://github.com/Scempyyy/privacy-auditor) |
+| **[Driver Security System (NeuroDrive AI)](https://github.com/Scempyyy/driver-security-system)** | Real-time computer vision driver safety system integrating facial landmark analysis (EAR, MAR, PERCLOS metrics) with a high-performance telemetry dashboard. | `MediaPipe` `OpenCV` `Python` `TypeScript` `Vite` | [View Repo](https://github.com/Scempyyy/driver-security-system) |
+| **[RoboRabbit](https://github.com/Scempyyy/Roborabbit)** | Autonomous voice AI companion with low-latency local neural TTS (Piper), computer screen perception, browser automation, and resilient multi-model failover. | `Python 3.11` `Piper TTS` `FastAPI` `WebSockets` | [View Repo](https://github.com/Scempyyy/Roborabbit) |
+
+---
+
+## 🛠️ Tech Stack & Architecture
+
+- **Core:** Semantic HTML5, CSS3 Custom Properties (Design Tokens), Modular Vanilla JS
+- **Typography:** Rajdhani & Oswald custom webfonts
+- **Audio Experience:** Web Audio API sound triggers for UI feedback
+- **Deployment:** GitHub Pages custom domain (`CNAME: scempyy.me`) with automated SSL
+
+---
+
+## 📬 Contact & Connect
+
+- **Portfolio:** [scempyy.me](https://scempyy.me)
+- **Primary Business Email:** [business.scempyy@outlook.com](mailto:business.scempyy@outlook.com)
+- **GitHub:** [@Scempyyy](https://github.com/Scempyyy)
+- **Instagram:** [@scempyy_](https://www.instagram.com/scempyy_/)
+
+<div align="center">
+
+*"Simplicity is prerequisite for reliability." — Edsger W. Dijkstra*
+
+</div>
