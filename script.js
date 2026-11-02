@@ -67,91 +67,78 @@ document.querySelectorAll('[data-desc]').forEach(el => {
 
 // ===== Project detail data =====
 const PROJECT_DATA = {
+  'privacy-auditor': {
+    title: 'Auditor — Android Privacy Auditor',
+    tagline: 'An Android privacy and security auditing platform designed to make app behaviour easier to inspect and understand. The project combines APK analysis, permission review and clear reporting instead of treating a permission list as the whole privacy story.',
+    sections: [
+      { icon: '📱', title: 'Android App Architecture', body: 'Built around Kotlin and Jetpack Compose, with Coroutines and Flow for asynchronous work and Room for local persistence. Android package visibility is handled explicitly for modern Android versions.' },
+      { icon: '🔬', title: 'APK & Static Analysis', body: 'The analysis flow inspects APK contents and DEX-level information to look for security-relevant indicators. Findings are surfaced as evidence and signals for review, not as proof that an app is malicious.' },
+      { icon: '🧩', title: 'Permissions Need Context', body: 'A permission is not automatically a vulnerability. Auditor is intended to combine requested access, app context and other available indicators so users can understand why something deserves attention.' },
+      { icon: '📊', title: 'Privacy Review & Reports', body: 'The interface focuses on a readable summary, risk explanations and locally exportable PDF reports. The goal is to make technical findings usable for both everyday users and reviewers.' },
+      { icon: '🛡️', title: 'Design Principle', body: 'The project prioritizes explainability: show what was observed, why it matters and what the user can check next. A score is a summary aid, not a definitive verdict.' }
+    ]
+  },
+  'roborabbit': {
+    title: 'RoboRabbit — Personal AI Assistant',
+    tagline: 'A personal voice assistant project built in Python. RoboRabbit connects speech input, an AI model and text-to-speech so that a conversation can become a practical computer-side workflow.',
+    sections: [
+      { icon: '🎙️', title: 'Voice Pipeline', body: 'The project experiments with audio capture and processing, passing user input into an assistant loop and returning spoken responses. The first milestone was getting RoboRabbit to speak successfully.' },
+      { icon: '🧠', title: 'AI Integration', body: 'The assistant uses a model API for language understanding and response generation. The architecture keeps model interaction separate from the voice interface so providers can be changed.' },
+      { icon: '🔊', title: 'Text to Speech', body: 'Piper is used for local text-to-speech experiments, keeping spoken output close to the machine rather than relying entirely on a cloud voice service.' },
+      { icon: '⚙️', title: 'Local Service Layer', body: 'A small FastAPI service provides a clean local interface for parts of the assistant. This makes it easier to separate the assistant logic from future frontends or integrations.' },
+      { icon: '🧪', title: 'Current Direction', body: 'The focus is on modularity and reliability: speech in, intent and response processing, then speech out. It remains an evolving personal project.' }
+    ]
+  },
+  'roboos': {
+    title: 'RoboOS — Custom Linux Build',
+    tagline: 'A custom Arch-based Linux distribution experiment created to learn how a Linux system is assembled, themed and packaged into a bootable ISO.',
+    sections: [
+      { icon: '🐧', title: 'Arch Linux Foundation', body: 'RoboOS is based on Arch Linux and uses the Archiso tooling to produce a bootable image. The project is a hands-on way to understand the pieces that make up a Linux installation.' },
+      { icon: '🎨', title: 'Visual Identity', body: 'The design direction uses a purple and black visual theme, giving the custom environment a recognizable identity rather than shipping an untouched default setup.' },
+      { icon: '💿', title: 'Building an ISO', body: 'The workflow includes configuring the build profile, selecting packages and generating an ISO that can be tested in a virtual machine before considering real hardware.' },
+      { icon: '🧰', title: 'What It Teaches', body: 'The project explores package selection, boot media, system configuration, Linux internals and the practical difference between installing a distribution and assembling one.' }
+    ]
+  },
+  'privacy-browser': {
+    title: 'Privacy Browser + AI Cyber Shield',
+    tagline: 'A privacy-first browser and security companion concept focused on safer downloads, local analysis and transparent software supply-chain information.',
+    sections: [
+      { icon: '🧱', title: 'Core Architecture', body: 'The architecture is organized around a C++20 core, with explicit boundaries for path sanitization, staging and download analysis. The goal is to keep risky file handling deliberate and reviewable.' },
+      { icon: '🔐', title: 'Download Safety', body: 'The proposed flow stages downloads before they are opened, validates paths and computes SHA-256 hashes. This creates a controlled point where checks can run before a file reaches its final destination.' },
+      { icon: '📦', title: 'Software Transparency', body: 'The project uses Anchore Syft as a pinned SBOM tool to explore software-bill-of-materials generation and dependency visibility.' },
+      { icon: '📱', title: 'Android Companion', body: 'The Android side is designed as a security companion, with optional VPN or DNS filtering rather than assuming every feature must live inside the browser.' },
+      { icon: '🧠', title: 'Local-First AI', body: 'The design preference is local-first analysis, with cloud fallback disabled by default. That keeps sensitive inspection data on-device unless a user deliberately chooses otherwise.' }
+    ]
+  },
+  'myfam-devices': {
+    title: 'MyFam Devices',
+    tagline: 'A family device companion app experiment built with Expo and Supabase. The project explores the basics of building a cross-platform mobile app backed by a hosted data service.',
+    sections: [
+      { icon: '📲', title: 'Mobile App', body: 'The frontend is built with Expo, making it possible to develop and test a React Native application across supported mobile platforms.' },
+      { icon: '🗄️', title: 'Backend', body: 'Supabase provides the backend building blocks for data storage and application connectivity. It keeps the prototype focused on app flows rather than building every backend service from scratch.' },
+      { icon: '🧪', title: 'Prototype Status', body: 'This is an exploratory build. The goal is to learn mobile development, authentication and connected app workflows while validating the product idea.' }
+    ]
+  },
   'driver-security': {
     title: 'Driver Security System',
-    tagline: 'A real-time Driver Drowsiness and Attention Detection System built with Python, OpenCV and MediaPipe. A camera continuously monitors the driver\'s face — MediaPipe extracts 478 facial landmarks, and the system calculates Eye Aspect Ratio, Mouth Aspect Ratio, PERCLOS, blink rate, gaze direction and head tilt to detect drowsiness, yawning, head nodding and distraction in real time.',
+    tagline: 'A real-time driver drowsiness and attention detection system built with Python, OpenCV and MediaPipe. The camera monitors facial landmarks and combines several signals rather than reacting to a single blink.',
     sections: [
-      { icon: '📷', title: 'Camera → Face Detection', body: 'OpenCV opens the camera at up to 1280×720 and sends each frame to MediaPipe Face Landmarker, which detects 478 facial landmarks in real time — including points around the left eye, right eye, mouth, nose, chin and irises.' },
-      { icon: '👁️', title: 'EAR — Eye Aspect Ratio', body: 'The core of the system. EAR is calculated from the vertical and horizontal distances between eye landmarks — a higher EAR means the eye is open, and it approaches 0 as the eye closes.\n\nThe system calibrates itself for whoever is using it: on startup you look at the camera with your eyes open for 60 frames, and it calculates your average open-eye EAR. From there:\n\nEAR threshold = average open-eye EAR × 0.75\n\nSo it never assumes everyone\'s eyes measure the same.' },
-      { icon: '😴', title: 'Detecting Prolonged Eye Closure', body: 'Once calibrated, every frame is classified as eyes open or closed based on the personal threshold. The system counts consecutive closed-eye frames — 60 consecutive frames triggers the normal drowsiness alert. It\'s not reacting to a single blink; it\'s watching for a sustained closure.' },
-      { icon: '📊', title: 'PERCLOS (Percentage of Eye Closure)', body: 'One of the more advanced parts of the project. The system keeps a rolling ~60-second window and records whether the eyes were closed in each frame. If PERCLOS exceeds 15%, it triggers a drowsiness alert — catching drivers who aren\'t continuously closing their eyes, but are spending an unusually large portion of recent time with eyes closed.' },
-      { icon: '👁️', title: 'Blink Rate', body: 'The system records individual blink timestamps over the previous 60 seconds and calculates blinks per minute. Fewer than 10 blinks/minute or more than 30 blinks/minute is flagged as a suspicious condition — one more independent signal alongside EAR and PERCLOS.' },
-      { icon: '🥱', title: 'Yawning Detection (MAR)', body: 'MAR — Mouth Aspect Ratio — increases as the mouth opens wider. The configured threshold is 0.65, and the condition has to persist for multiple frames before it\'s classified as a yawn, avoiding false positives from talking.' },
-      { icon: '🤕', title: 'Head Nodding', body: 'The system tracks the position of the nose and chin to estimate forward head tilt. If the tilt exceeds the configured threshold and persists across enough frames, it\'s flagged as head nodding — a separate state representing microsleep risk.' },
-      { icon: '👀', title: 'Gaze / Distraction Detection', body: 'Beyond drowsiness, the system tracks iris position relative to the eye to determine whether the driver is looking centre, left or right. Looking away for 60 frames switches the state to DISTRACTED, with an on-screen prompt like "LOOKING LEFT! — Keep eyes on road." This makes it a driver attention monitor as much as a drowsiness detector.' },
-      { icon: '🚨', title: 'Alert System', body: 'A state machine prioritizes signals in this order: emergency → prolonged eye closure → high PERCLOS → yawning → nodding → looking away → low blink rate. Each layer feeds into a single alert decision so the most urgent condition always wins.' },
-      { icon: '🆘', title: 'Emergency Mode', body: 'The standout feature. If the driver\'s eyes stay closed for around 4 seconds, the system treats it as a possible unresponsive/emergency situation:\n\n1. Shows a full-screen emergency warning\n2. Starts a 5-second countdown\n3. Gives the driver a chance to cancel by pressing C\n4. If there\'s no response, starts the emergency sequence\n5. Simulates sending an emergency message and sharing location\n6. Logs the event\n\nNote: the emergency SMS/location sharing is explicitly a simulation for this build — a production version would swap in a real API like Twilio or Fast2SMS.' },
-      { icon: '📱', title: 'Phone Alerts', body: 'Drowsiness alerts can also trigger a Pushbullet notification to a phone once alert severity crosses a configured threshold — so the flow goes from a computer alarm to a phone notification for repeated or severe alerts.' },
-      { icon: '📄', title: 'Driving Session Report', body: 'At the end of a session, the system generates a report covering driving duration, number of alerts, PERCLOS, blink rate, the calibrated EAR threshold, a safety score, and an alert timeline. It outputs a PDF (via ReportLab), falling back to a .txt report if ReportLab isn\'t installed. The safety score is out of 100, rated SAFE → CAUTION → WARNING → DANGEROUS.' }
+      { icon: '📷', title: 'Face Landmarks', body: 'OpenCV captures camera frames and MediaPipe Face Landmarker extracts 478 facial landmarks, including eye, mouth and iris points.' },
+      { icon: '👁️', title: 'EAR & PERCLOS', body: 'Eye Aspect Ratio helps estimate eye closure, while PERCLOS tracks the proportion of time eyes remain closed across a rolling window. The system calibrates an open-eye baseline for the current user.' },
+      { icon: '🥱', title: 'Multiple Signals', body: 'Mouth Aspect Ratio, blink rate, head tilt and gaze direction add context for yawning, nodding and distraction. Combining signals helps avoid relying on one measurement alone.' },
+      { icon: '🚨', title: 'Alerts & Emergency Flow', body: 'A prioritised alert state machine surfaces the most urgent condition. The emergency messaging and location-sharing sequence in this build is a simulation, not a live emergency service.' },
+      { icon: '📄', title: 'Session Report', body: 'The system can generate a driving-session report containing duration, alerts, selected metrics and a summary safety score.' }
     ]
   },
   'content-creation': {
-    title: 'Content Creation',
-    tagline: 'An archived creator project — Scempyy / TD Nation — built around Valorant content on Instagram and YouTube. The creator chapter is finished, but the work is still a useful record of what I learned about editing, consistency and audience reach.',
+    title: 'Content Creation — Archived',
+    tagline: 'An archived creator chapter built around gaming content, editing and audience growth across Instagram and YouTube.',
     sections: [
-      { icon: '🎮', title: 'The Brand — Scempyy / TD Nation', body: 'Built a gaming content brand around Valorant, posting across Instagram and YouTube. Grew it from scratch — gameplay clips, editing, captions, and a consistent posting style — while balancing it alongside school and college.' },
-      { icon: '📸', title: 'Instagram — Reach Beyond Followers', body: 'Around 530 followers, but individual reels pulled in far more than that: 74.4K, 322K, and 338K views on separate reels. The content was getting pushed by Instagram to people well outside the existing follower base — the account grew through reach, not the other way around.\n\nThe style that worked best: short Valorant gameplay clips with relatable, often humorous captions — like tying exam stress to in-game skill ("Ye exams aate hi mereme skills kaha se aa jati hai") — which pulled in more than just hardcore Valorant viewers.' },
-      { icon: '🎥', title: 'YouTube — Channel Stats', body: 'Lifetime numbers (22 March 2025 – 13 August 2025):\n\n• 103,800 total views\n• 4.6K hours of watch time\n• 639 subscribers\n• $12.05 estimated revenue\n\nThat works out to roughly 2.7 minutes of watch time per view on average — people weren\'t just clicking away, they were sticking around.' },
-      { icon: '💰', title: 'Fast Monetization', body: 'Reached monetization in under three months — unusually quick for a small gaming channel. Combined with the Instagram reach, it meant two platforms were compounding at once: Instagram driving discovery, YouTube building a deeper, more consistent audience.' },
-      { icon: '📡', title: 'The Hostel Internet Setback', body: 'Was streaming regularly alongside posting reels and videos, but after moving into the technical college hostel, the internet situation couldn\'t support regular streaming. Not a loss of interest or a content problem — a practical infrastructure limit. Streaming stopped, though the reels and videos already posted kept their views.' },
-      { icon: '📊', title: 'Two Engines Running Together', body: 'Instagram handled discovery and viral reach — reels regularly outperforming the follower count by hundreds of times over. YouTube handled depth — longer watch time, a real subscriber base, and monetization. Together they turned a small account into a channel with real, measurable traction before the hostel internet cut streaming short.' }
+      { icon: '🎮', title: 'Gaming Content', body: 'Created Valorant-focused clips and posts, learning how pacing, editing, captions and consistency shape short-form content.' },
+      { icon: '📊', title: 'YouTube Results', body: 'Historical channel analytics recorded 103,800 views, 4.6K hours of watch time and 639 subscribers between 22 March 2025 and 13 August 2025.' },
+      { icon: '🎬', title: 'What I Learned', body: 'The project taught practical lessons in editing, motion, publishing workflows, audience retention and interpreting creator analytics.' }
     ]
-  },
-  'web-development': {
-    title: 'Web Development Projects',
-    tagline: 'Frontend work built from plain web technologies — including this portfolio — with a focus on interaction, layout, visual systems and making a page feel like an actual experience.',
-    sections: [
-      { icon: '🌐', title: 'This Portfolio Site', body: 'The site you\'re looking at right now. It started from a visual direction inspired by a game interface, then grew into a personal portfolio with dedicated About, Achievements, Certificates, Projects and Contact views.' },
-      { icon: '🧱', title: 'Built Without a Framework', body: 'The core is plain HTML, CSS and JavaScript. That means the layouts, interactions, project screens, navigation and visual details are all controlled directly rather than hidden behind a large framework.' },
-      { icon: '🎛️', title: 'Interaction Is Part of the Build', body: 'The portfolio uses full-screen panels, project detail views, animated transitions, interface sounds, hover states and responsive layouts. The goal is for navigation to feel deliberate instead of like clicking through a collection of static pages.' },
-      { icon: '📱', title: 'Responsive Thinking', body: 'The same information needs to remain usable on different screen sizes, so the project uses responsive layouts and mobile-specific spacing rather than assuming everyone is looking at a desktop monitor.' },
-      { icon: '🧠', title: 'What I Learned', body: 'This project has been a practical lesson in structuring a real frontend, managing UI state with JavaScript, refining CSS, thinking about hierarchy, and repeatedly polishing small details until the interface feels coherent.' }
-    ]
-  },
-  'ai-assistant': {
-    title: 'Own AI Assistant',
-    tagline: 'A personal local Python assistant built around one simple idea: useful AI should feel like a tool you can actually use, not just a chat window.',
-    sections: [
-      { icon: '🤖', title: 'The Idea', body: 'This is my attempt at making a personal assistant that lives on my own machine. Instead of building a polished consumer app, the focus is on learning how an assistant can connect AI with practical actions and everyday computer tasks.' },
-      { icon: '🐍', title: 'Built With Python', body: 'Python is the main layer tying the assistant together. It gives the project a simple place to handle input, logic, AI interaction and task execution while keeping the code easy to change as the idea evolves.' },
-      { icon: '🖥️', title: 'Local-First', body: 'The assistant is designed to run locally on my laptop. That makes it a useful playground for experimenting with AI workflows while keeping the project close to the machine I actually use.' },
-      { icon: '⚙️', title: 'What I Am Exploring', body: 'The interesting part is not a list of flashy commands. It is figuring out how an AI model can understand intent, choose an action, execute it, and return something useful — the basic loop behind a real assistant.' },
-      { icon: '🧪', title: 'Current Status', body: 'Personal project / ongoing experiment. I am still refining the idea rather than pretending it is a finished product.' }
-    ]
-  },
-  'phishing-detector': {
-    title: 'Phishing Website Detector',
-    tagline: 'A security-focused experiment exploring how suspicious websites and URLs can be identified before a user trusts them.',
-    status: 'experiment',
-    sections: [
-      { icon: '🛡️', title: 'The Problem', body: 'Phishing works by making a malicious page look trustworthy. A useful detector needs to look past appearance and examine signals that can indicate a suspicious destination.' },
-      { icon: '🔎', title: 'What I Am Exploring', body: 'The project explores how URL and website characteristics can be turned into signals for deciding whether a page looks legitimate or suspicious. It is a learning project around security, feature thinking and machine-learning concepts.' },
-      { icon: '🧠', title: 'Why It Matters', body: 'The interesting challenge is balancing detection with false positives. A security tool that blocks everything is not useful, while one that misses obvious phishing pages is not useful either.' },
-      { icon: '🧪', title: 'Current Status', body: 'Early experiment. It is not presented as a production-grade security product, and the detailed implementation and evaluation are still being developed.' }
-    ]
-  },
-  'lifestyle-tracker': {
-    title: 'Lifestyle Tracker',
-    tagline: 'A deliberately simple C++ console tracker for turning everyday routines into something I can record, review and reason about.',
-    sections: [
-      { icon: '📋', title: 'The Idea', body: 'The project is built around a simple problem: routines are easy to forget and hard to judge from memory. A small tracker makes those habits visible by turning them into recorded entries.' },
-      { icon: '⌨️', title: 'Console-First', body: 'Written in C++ as a command-line program. The interface is intentionally simple so the focus stays on input handling, program logic and keeping the data structured.' },
-      { icon: '📈', title: 'What Gets Tracked', body: 'The tracker is designed around everyday habits such as sleep, water intake and study/workout time, with entries that can be reviewed later to spot patterns in a routine.' },
-      { icon: '🧠', title: 'What It Taught Me', body: 'A small project like this is useful for practicing variables, conditions, data handling, repeated input, basic statistics and the kind of logic that becomes a foundation for larger applications.' },
-      { icon: '🧪', title: 'Current Scope', body: 'It is a learning project, not a full lifestyle platform. Keeping the scope small was intentional: make the core idea work first, then decide what is actually worth adding.' }
-    ]
-  },
-  'ai-study-buddy': {
-    title: 'AI Study Buddy',
-    tagline: 'An experimental AI study companion focused on making questions, notes and revision easier to turn into a useful learning workflow.',
-    status: 'experiment',
-    sections: [
-      { icon: '📚', title: 'The Idea', body: 'Instead of treating AI as a machine that simply gives answers, this project explores using it as a study companion — something that can help a student work through material, ask better questions and revise.' },
-      { icon: '🧩', title: 'The Workflow', body: 'The concept is built around turning normal study inputs such as questions or notes into more structured help: explanations, prompts for revision and ways to break a difficult topic into smaller pieces.' },
-      { icon: '🤖', title: 'AI + Prompting', body: 'Prompting is an important part of the experiment because the usefulness of an AI study tool depends heavily on how the task and context are communicated to the model.' },
-      { icon: '🧪', title: 'Current Status', body: 'Early experiment. The idea is still being explored, so this page describes the direction rather than pretending there is a finished application behind it.' }
-    ]
-  },
+  }
 };
 
 const cardSlots = document.querySelector('.card-slots');
