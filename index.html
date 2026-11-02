@@ -3,171 +3,692 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#071018">
-<meta name="description" content="Scempyy — Pranav Sharma's AI/ML, development and content portfolio.">
-<title>Scempyy | Portfolio</title>
+<meta name="theme-color" content="#03080d">
+<meta name="description" content="Scempyy — Pranav Sharma's Cyber Command Portfolio. Systems Architect, Mobile Engineering, AI/ML, and Security.">
+<title>Scempyy // Pranav Sharma — Cyber Command Portfolio</title>
 <link rel="stylesheet" href="assets/fonts/fonts.css">
 <link rel="stylesheet" href="assets/fa/all.min.css">
 <link rel="stylesheet" href="style.css">
 <link rel="icon" href="assets/scempyy-logo.svg" type="image/svg+xml">
 </head>
-<body>
-<div class="menu">
-  <div class="ambient ambient-a"></div>
-  <div class="ambient ambient-b"></div>
+<body class="cyber-theme">
 
+<!-- Ambient Cyber Canvas & Matrix Rain -->
+<canvas id="cyber-canvas"></canvas>
+<canvas id="matrix-canvas"></canvas>
+
+<!-- Top Scanline & CRT Glow Overlay -->
+<div class="crt-overlay"></div>
+<div class="ambient-glow ambient-glow-1"></div>
+<div class="ambient-glow ambient-glow-2"></div>
+
+<div class="hud-container">
+
+  <!-- TOPBAR HUD -->
   <header class="topbar">
-    <div class="brand" data-desc="Scempyy — Pranav Sharma's portfolio.">
-      <span class="brand-mark"><img src="assets/scempyy-logo.svg" alt="Scempyy logo"></span>
-      <span><strong>SCEMPYY</strong><small>PORTFOLIO // 2026</small></span>
+    <div class="brand" data-desc="Scempyy — Pranav Sharma's System Console">
+      <span class="brand-hexagon"><img src="assets/scempyy-logo.svg" alt="Scempyy Logo"></span>
+      <div class="brand-text">
+        <strong>SCEMPYY</strong>
+        <small><span class="pulsing-led"></span> SYS_VER // 2026.4 • READY</small>
+      </div>
     </div>
+
     <nav class="top-nav">
-      <button class="top-link active" data-desc="Home — the main portfolio view.">HOME</button>
-      <button class="top-link" id="projects-top" data-desc="Open the project showcase.">PROJECTS</button>
-      <button class="top-link" id="contacts-top" data-desc="Open contact options.">CONTACT</button>
-      <a class="top-link top-cv-link" href="assets/Pranav_Sharma_CV.pdf" target="_blank" rel="noopener" data-desc="Open my CV.">CV</a>
+      <button class="nav-tab active" data-nav="home" data-desc="Command Center Deck"><i class="fa-solid fa-terminal"></i><span>CORE</span></button>
+      <button class="nav-tab" id="projects-top" data-nav="projects" data-desc="View Featured Projects & APKs"><i class="fa-solid fa-cubes"></i><span>PROJECTS</span></button>
+      <button class="nav-tab" id="telemetry-top" data-nav="telemetry" data-desc="Live GitHub Streaks & Achievements"><i class="fa-solid fa-chart-line"></i><span>TELEMETRY</span></button>
+      <button class="nav-tab" id="terminal-trigger-top" data-nav="cli" data-desc="Open Interactive Cyber CLI"><i class="fa-solid fa-code"></i><span>TERMINAL</span></button>
+      <button class="nav-tab" id="contacts-top" data-nav="contact" data-desc="Secure Transmission Channels"><i class="fa-solid fa-satellite-dish"></i><span>CONTACT</span></button>
+      <a class="nav-tab cv-nav-pill" href="assets/Pranav_Sharma_CV.pdf" target="_blank" rel="noopener" data-desc="View PDF Curriculum Vitae"><i class="fa-regular fa-file-pdf"></i><span>CV</span></a>
     </nav>
-    <div class="top-status">
-      <span class="status-dot"></span><span>AVAILABLE</span>
-      <span class="date"><i class="fa-regular fa-clock"></i> <span id="live-date">--/--/----</span></span>
+
+    <div class="topbar-controls">
+      <div class="telemetry-badge" title="Live UTC System Clock">
+        <i class="fa-solid fa-clock"></i> <span id="live-utc">--:--:-- UTC</span>
+      </div>
+      <button class="hud-btn" id="terminal-btn" title="Toggle Hacker Terminal (Ctrl+K)">
+        <i class="fa-solid fa-terminal"></i> <span>CLI</span>
+      </button>
+      <button class="hud-btn" id="matrix-toggle-btn" title="Toggle Digital Matrix Rain">
+        <i class="fa-solid fa-biohazard"></i> <span>MATRIX</span>
+      </button>
+      <button class="hud-btn sound-toggle" id="mute-btn" title="Toggle Tactical Audio Feedback">
+        <i class="fa-solid fa-volume-high" id="mute-icon"></i>
+        <div class="sound-wave"><span></span><span></span><span></span></div>
+      </button>
     </div>
   </header>
 
+  <!-- SOCIAL TACTICAL RAIL -->
   <aside class="social-rail">
-    <div class="rail-label">CONNECT</div>
-    <a class="social-icon" data-desc="Email me." href="mailto:business.scempyy@outlook.com"><i class="fa-solid fa-envelope"></i></a>
-    <a class="social-icon" data-desc="GitHub — my code and projects." href="https://github.com/Scempyyy" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i></a>
-    <a class="social-icon" data-desc="LinkedIn — coming soon." href="#" aria-disabled="true"><i class="fa-brands fa-linkedin-in"></i></a>
-    <a class="social-icon" data-desc="Instagram — @scempyy_." href="https://www.instagram.com/scempyy_/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
-    <a class="social-icon" data-desc="Discord server." href="https://discord.com/users/710069387909922827" target="_blank" rel="noopener"><i class="fa-brands fa-discord"></i></a>
-    <a class="social-icon" data-desc="Spotify profile." href="https://open.spotify.com/user/31hxgbfcre5v33p774t2kvnq6lxq" target="_blank" rel="noopener"><i class="fa-brands fa-spotify"></i></a>
-    <a class="social-icon" data-desc="YouTube — @Scempyy." href="https://www.youtube.com/@Scempyy" target="_blank" rel="noopener"><i class="fa-brands fa-youtube"></i></a>
+    <div class="rail-title">LINK</div>
+    <div class="rail-line"></div>
+    <a class="rail-icon" href="https://github.com/Scempyyy" target="_blank" rel="noopener" data-desc="GitHub: @Scempyyy (1,600+ Commits, 366D Streak)"><i class="fa-brands fa-github"></i></a>
+    <a class="rail-icon" href="mailto:business.scempyy@outlook.com" data-desc="Primary Email: business.scempyy@outlook.com"><i class="fa-solid fa-envelope"></i></a>
+    <a class="rail-icon" href="https://www.instagram.com/scempyy_/" target="_blank" rel="noopener" data-desc="Instagram: @scempyy_"><i class="fa-brands fa-instagram"></i></a>
+    <a class="rail-icon" href="https://discord.com/users/710069387909922827" target="_blank" rel="noopener" data-desc="Discord: Scempyy"><i class="fa-brands fa-discord"></i></a>
+    <a class="rail-icon" href="https://open.spotify.com/user/31hxgbfcre5v33p774t2kvnq6lxq" target="_blank" rel="noopener" data-desc="Spotify Audio Track"><i class="fa-brands fa-spotify"></i></a>
+    <a class="rail-icon" href="https://www.youtube.com/@Scempyy" target="_blank" rel="noopener" data-desc="YouTube Creator Channel"><i class="fa-brands fa-youtube"></i></a>
+    <div class="rail-line"></div>
+    <div class="rail-sub">2026</div>
   </aside>
 
-  <main class="hero">
-    <section class="hero-copy">
-      <div class="eyebrow"><span></span> AI/ML SYSTEMS • MOBILE ENGINEERING • SECURITY</div>
-      <h1>PRANAV<br><em>SHARMA</em></h1>
-      <p class="hero-lead">Building practical software, local AI systems, and privacy-first tools.</p>
-      <p class="hero-body">B.Tech AI/ML student, developer and Linux builder. Shipping production-ready software: from APK privacy analysis and computer vision driver safety to offline-first challenge engines and voice AI companions.</p>
-      <div class="hero-actions">
-        <button class="primary-action" id="projects-btn" data-desc="Open my projects."><span>VIEW PROJECTS</span><i class="fa-solid fa-arrow-right"></i></button>
-        <button class="secondary-action" id="contacts-btn" data-desc="Ways to contact me.">CONTACT ME</button><a class="secondary-action cv-action" href="assets/Pranav_Sharma_CV.pdf" target="_blank" rel="noopener" data-desc="Open my CV.">VIEW CV <i class="fa-regular fa-file-lines"></i></a>
+  <!-- MAIN HERO / COMMAND DECK -->
+  <main class="hero-deck">
+    
+    <!-- LEFT WING: BIO & DIRECTIVES -->
+    <section class="deck-left">
+      <div class="cyber-badge-wrap">
+        <span class="cyber-kicker"><i class="fa-solid fa-shield-halved"></i> SYSTEMS ARCHITECT • MOBILE • AI/ML</span>
+        <span class="cyber-pulse-pill"><span class="pulse-dot"></span> 366D DEV STREAK</span>
       </div>
-      <div class="hero-meta">
-        <div><span>BASED IN</span><strong>INDIA</strong></div>
-        <div><span>FOCUS</span><strong>AI • MOBILE • SYSTEMS</strong></div>
-        <div><span>STATUS</span><strong>AVAILABLE TO BUILD</strong></div>
-      </div>
-    </section>
 
-    <section class="profile-zone">
-      <div class="orbit orbit-1"></div><div class="orbit orbit-2"></div>
-      <div class="card-slots">
-        <div class="agent-card-wrap">
-          <div class="agent-card" id="agent-card" data-desc="Pranav Sharma (Scempyy) — Developer & Builder">
-            <div class="card-art" style="height:300px; overflow:hidden;">
-              <img src="assets/card-art.jpg" alt="Pranav Sharma" style="width:100%; height:100%; object-fit:cover; display:block;">
-            </div>
-            <div class="card-agent-label">PERSONAL PROFILE</div>
-            <div class="card-name-band">PRANAV SHARMA</div>
-            <div class="card-tag">SCEMPYY // AI/ML</div>
-          </div>
-          <div class="card-wings">
-            <svg viewBox="0 0 200 90" class="wing wing-left"><path d="M100 0 L10 70 L45 90 L100 20 Z" /></svg>
-            <svg viewBox="0 0 200 90" class="wing wing-right"><path d="M100 0 L190 70 L155 90 L100 20 Z" /></svg>
-          </div>
-          <div class="card-diamond"></div>
-          <div class="card-dots">···</div>
-          <button class="mute-btn" id="mute-btn" data-desc="Toggle interface sounds."><i class="fa-solid fa-volume-xmark" id="mute-icon"></i></button>
+      <h1 class="glitch-title" data-text="PRANAV SHARMA">
+        PRANAV<br>
+        <span class="highlight-cyan">SHARMA</span>
+      </h1>
+
+      <p class="hero-typewriter" id="typewriter-text">
+        Building practical software, local AI systems, and privacy-first tools.
+      </p>
+
+      <p class="hero-subtext">
+        B.Tech AI/ML student, developer and Linux builder. Shipping production-ready software: from APK privacy analysis and computer vision driver safety to offline-first challenge engines and voice AI companions.
+      </p>
+
+      <div class="deck-actions">
+        <button class="cyber-btn primary-cyber-btn" id="projects-btn">
+          <span class="btn-cut"></span>
+          <i class="fa-solid fa-rocket"></i>
+          <span>EXPLORE BUILDS</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+        <button class="cyber-btn secondary-cyber-btn" id="telemetry-btn">
+          <i class="fa-solid fa-fire text-amber"></i>
+          <span>GITHUB TELEMETRY</span>
+        </button>
+        <button class="cyber-btn ghost-cyber-btn" id="contacts-btn">
+          <i class="fa-solid fa-terminal"></i>
+          <span>TRANSMIT MESSAGE</span>
+        </button>
+      </div>
+
+      <div class="telemetry-micro-strip">
+        <div class="micro-stat">
+          <span class="lbl">STATION</span>
+          <strong>INDIA // UTC+5:30</strong>
+        </div>
+        <div class="micro-stat">
+          <span class="lbl">FOCUS</span>
+          <strong>AI • MOBILE • SYSTEMS</strong>
+        </div>
+        <div class="micro-stat">
+          <span class="lbl">GITHUB STREAK</span>
+          <strong class="text-amber">366 DAYS ACTIVE</strong>
+        </div>
+        <div class="micro-stat">
+          <span class="lbl">AVAILABILITY</span>
+          <strong class="text-green">AVAILABLE TO BUILD</strong>
         </div>
       </div>
-      <div class="profile-caption"><span>PROFILE // 001</span><strong>SCEMPYY</strong><small>Developer · AI/ML · Linux</small></div>
     </section>
 
-    <aside class="hero-stats">
-      <div class="stat"><strong>1.6K+</strong><span>GITHUB COMMITS // 2026</span></div>
-      <div class="stat"><strong>366D</strong><span>DAILY ACTIVE STREAK</span></div>
-      <div class="stat"><strong>04</strong><span>PRODUCTION BUILDS & APKS</span></div>
-      <div class="stat"><strong>2ND</strong><span>AI TECH FEST // RUNNER-UP</span></div>
+    <!-- CENTER WING: 3D HOLOGRAPHIC AGENT CARD -->
+    <section class="deck-center">
+      <div class="hologram-stage" id="card-stage">
+        <div class="orbital-ring ring-outer"></div>
+        <div class="orbital-ring ring-inner"></div>
+
+        <div class="agent-3d-card" id="agent-3d-card" data-desc="Pranav Sharma (Scempyy) — Interactive Holographic Agent Card">
+          <div class="card-glare"></div>
+          
+          <div class="card-tech-header">
+            <span class="card-corner-blip tl"></span>
+            <span class="card-corner-blip tr"></span>
+            <span class="card-id-tag">OPERATIVE // SCEMPYY</span>
+            <span class="card-level">LVL.04</span>
+          </div>
+
+          <div class="card-media-wrapper">
+            <img src="assets/card-art.jpg" alt="Pranav Sharma Cyber Operative" class="card-avatar-img">
+            <div class="card-hologram-scanline"></div>
+            <div class="card-gradient-sheen"></div>
+            <div class="card-floating-pill"><i class="fa-solid fa-code-commit text-cyan"></i> 1,602 COMMITS</div>
+          </div>
+
+          <div class="card-meta-band">
+            <div class="card-agent-name">PRANAV SHARMA</div>
+            <div class="card-agent-role">AI/ML • SYSTEMS BUILDER</div>
+          </div>
+
+          <div class="card-bottom-tags">
+            <span>KOTLIN</span>
+            <span>PYTHON</span>
+            <span>REACT NATIVE</span>
+            <span>C++20</span>
+          </div>
+
+          <span class="card-corner-blip bl"></span>
+          <span class="card-corner-blip br"></span>
+        </div>
+
+        <div class="card-hud-caption">
+          <span class="hud-target-marker"></span>
+          <span>HOLO_DECK // OPERATIVE 001 • SCEMPYY</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- RIGHT WING: METRICS & TELEMETRY DECK -->
+    <aside class="deck-right">
+      <div class="metrics-grid">
+        
+        <div class="metric-card" data-desc="GitHub Commit Velocity: 1,602 verified contributions in 2026">
+          <div class="metric-head">
+            <span class="metric-title">GITHUB COMMITS</span>
+            <span class="metric-icon"><i class="fa-solid fa-code-branch text-cyan"></i></span>
+          </div>
+          <div class="metric-value">1,602</div>
+          <div class="metric-sub">VERIFIED IN 2026 // DENSE ACTIVITY</div>
+          <div class="mini-bar-track"><div class="mini-bar-fill" style="width: 95%;"></div></div>
+        </div>
+
+        <div class="metric-card highlight-amber" data-desc="Unbroken Daily Streak: Active consecutive commits every day">
+          <div class="metric-head">
+            <span class="metric-title">DAILY ACTIVE STREAK</span>
+            <span class="metric-icon"><i class="fa-solid fa-fire text-amber"></i></span>
+          </div>
+          <div class="metric-value text-amber">366<span class="unit">DAYS</span></div>
+          <div class="metric-sub">PERFECT CONTINUITY // ZERO GAPS</div>
+          <div class="mini-bar-track"><div class="mini-bar-fill amber-fill" style="width: 100%;"></div></div>
+        </div>
+
+        <div class="metric-card" data-desc="Production Releases: Standalone APKs and packages shipped">
+          <div class="metric-head">
+            <span class="metric-title">PRODUCTION BUILDS</span>
+            <span class="metric-icon"><i class="fa-brands fa-android text-green"></i></span>
+          </div>
+          <div class="metric-value text-green">04<span class="unit">APKS</span></div>
+          <div class="metric-sub">EVORYZ & AUDITOR // SHIPPED V1.0</div>
+          <div class="mini-bar-track"><div class="mini-bar-fill green-fill" style="width: 80%;"></div></div>
+        </div>
+
+        <div class="metric-card" data-desc="Tech Fest Runner-Up for Driver Security System (Computer Vision)">
+          <div class="metric-head">
+            <span class="metric-title">AI TECH FEST</span>
+            <span class="metric-icon"><i class="fa-solid fa-trophy text-purple"></i></span>
+          </div>
+          <div class="metric-value text-purple">2ND<span class="unit">PLACE</span></div>
+          <div class="metric-sub">NEURODRIVE AI // FACIAL TELEMETRY</div>
+          <div class="mini-bar-track"><div class="mini-bar-fill purple-fill" style="width: 85%;"></div></div>
+        </div>
+
+      </div>
+
+      <div class="quick-terminal-pill" id="trigger-cli-hint">
+        <i class="fa-solid fa-keyboard"></i>
+        <span>PRESS <strong>`</strong> OR <strong>CTRL+K</strong> FOR CLI COMMANDS</span>
+      </div>
     </aside>
+
   </main>
 
-  <section class="quick-strip">
-    <div><span class="strip-label">STACK</span><span>PYTHON</span><span>TYPESCRIPT</span><span>REACT NATIVE</span><span>KOTLIN</span><span>FASTAPI</span><span>OPENCV</span><span>C++</span><span>ARCH LINUX</span></div>
-    <div class="scroll-hint"><span></span> SELECT A PROJECT TO EXPLORE</div>
+  <!-- INFINITE CYBER STACK STRIP -->
+  <section class="cyber-ticker-wrap">
+    <div class="ticker-label"><i class="fa-solid fa-microchip"></i> TECH STACK</div>
+    <div class="ticker-viewport">
+      <div class="ticker-track">
+        <span>PYTHON 3.11</span><span class="sep">/</span>
+        <span>REACT NATIVE</span><span class="sep">/</span>
+        <span>EXPO</span><span class="sep">/</span>
+        <span>TYPESCRIPT</span><span class="sep">/</span>
+        <span>KOTLIN</span><span class="sep">/</span>
+        <span>JETPACK COMPOSE</span><span class="sep">/</span>
+        <span>FASTAPI</span><span class="sep">/</span>
+        <span>OPENCV</span><span class="sep">/</span>
+        <span>MEDIAPIPE 478</span><span class="sep">/</span>
+        <span>C++20</span><span class="sep">/</span>
+        <span>ARCH LINUX</span><span class="sep">/</span>
+        <span>SUPABASE</span><span class="sep">/</span>
+        <span>PIPER NEURAL TTS</span><span class="sep">/</span>
+        <span>SYFT SBOM</span><span class="sep">/</span>
+        <!-- Duplicated for infinite flow -->
+        <span>PYTHON 3.11</span><span class="sep">/</span>
+        <span>REACT NATIVE</span><span class="sep">/</span>
+        <span>EXPO</span><span class="sep">/</span>
+        <span>TYPESCRIPT</span><span class="sep">/</span>
+        <span>KOTLIN</span><span class="sep">/</span>
+        <span>JETPACK COMPOSE</span><span class="sep">/</span>
+        <span>FASTAPI</span><span class="sep">/</span>
+        <span>OPENCV</span><span class="sep">/</span>
+        <span>MEDIAPIPE 478</span><span class="sep">/</span>
+        <span>C++20</span><span class="sep">/</span>
+        <span>ARCH LINUX</span><span class="sep">/</span>
+        <span>SUPABASE</span><span class="sep">/</span>
+        <span>PIPER NEURAL TTS</span><span class="sep">/</span>
+        <span>SYFT SBOM</span>
+      </div>
+    </div>
   </section>
 
-  <!-- PROJECTS -->
-  <div class="projects-modal" id="projects-modal">
-    <div class="projects-modal-header">
-      <div>
-        <span class="eyebrow"><span></span> SELECTED WORK // 07 BUILDS</span>
-        <h2>PROJECTS</h2>
-        <p class="projects-intro">A selection of production systems, tools and experiments I have built while exploring AI, mobile engineering, privacy, and Linux.</p>
-      </div>
-      <button class="pm-close" id="projects-modal-close" aria-label="Back"><i class="fa-solid fa-arrow-left"></i><span>BACK</span></button>
-    </div>
-    <div class="project-showcase">
-      <button class="project-tile project-feature has-image" data-project="evoryz" data-desc="EvoRyz — Winter Arc challenge and personal growth mobile engine." style="--tile-color:#0ea5e9; background-image:url('assets/projects/lifestyle-tracker.jpg')">
-        <span class="feature-index">01</span><span class="tile-kicker">FEATURED // REACT NATIVE · EXPO · SUPABASE</span><span class="tile-label">EVORYZ — CHALLENGE & ACCOUNTABILITY ENGINE</span><span class="tile-summary">A production personal growth and accountability mobile app featuring a 100-day Winter Arc challenge engine, encrypted journal, friend system, and offline-first storage.</span><span class="tile-meta"><b>BUILT WITH</b> React Native · Expo · Supabase · TypeScript <em>•</em> <b>RELEASE</b> APK v1.0.0 Live</span><span class="tile-open">EXPLORE PROJECT <i class="fa-solid fa-arrow-right"></i></span>
-      </button>
-      <button class="project-tile has-image" data-project="privacy-auditor" data-desc="Auditor — Android privacy and security auditing platform." style="--tile-color:#8b5cf6; background-image:url('assets/projects/phishing-detector.jpg')">
-        <span class="tile-kicker">02 // KOTLIN · FASTAPI · SECURITY</span><span class="tile-label">AUDITOR — PRIVACY ANALYSIS</span><span class="tile-summary">A local-first static analysis platform that inspects Android apps and APKs, surfaces risky permissions and tracker fingerprints, and generates understandable audit reports.</span><span class="tile-meta"><b>STACK</b> Kotlin · Jetpack Compose · FastAPI <em>•</em> <b>RELEASE</b> APK v1.0.0 Live</span><i class="fa-solid fa-arrow-up-right-from-square"></i>
-      </button>
-      <button class="project-tile has-image" data-project="driver-security" data-desc="Driver Security System — click for details." style="--tile-color:#ff4655; background-image:url('assets/projects/driver-security.jpg')">
-        <span class="tile-kicker">03 // PYTHON · OPENCV · MEDIAPIPE</span><span class="tile-label">DRIVER SECURITY SYSTEM</span><span class="tile-summary">A real-time driver attention and drowsiness monitor using facial landmarks (EAR, MAR, PERCLOS), head pose, and a prioritized alert state machine.</span><span class="tile-meta"><b>STACK</b> Python · OpenCV · MediaPipe <em>•</em> <b>AWARD</b> Tech Fest Runner-Up</span><i class="fa-solid fa-arrow-up-right-from-square"></i>
-      </button>
-      <button class="project-tile has-image" data-project="roborabbit" data-desc="RoboRabbit — personal AI assistant." style="--tile-color:#ec4899; background-image:url('assets/projects/ai-assistant.jpg')">
-        <span class="tile-kicker">04 // PYTHON · PIPER TTS · FASTAPI</span><span class="tile-label">ROBORABBIT</span><span class="tile-summary">An autonomous personal voice assistant combining speech recognition, local neural TTS (Piper), computer screen perception, and resilient model orchestration.</span><span class="tile-meta"><b>STACK</b> Python 3.11 · Piper · FastAPI <em>•</em> <b>FOCUS</b> Local-First AI</span><i class="fa-solid fa-arrow-up-right-from-square"></i>
-      </button>
-      <button class="project-tile has-image" data-project="roboos" data-desc="RoboOS — custom Arch-based Linux distribution." style="--tile-color:#3d8bff; background-image:url('assets/projects/web-development.jpg')">
-        <span class="tile-kicker">05 // ARCHISO · LINUX</span><span class="tile-label">ROBOOS</span><span class="tile-summary">A custom Arch-based Linux distribution experiment, packaged as a bootable ISO with its own visual identity and tailored system setup.</span><span class="tile-meta"><b>STACK</b> Arch Linux · Archiso <em>•</em> <b>FOCUS</b> Custom OS Build</span><i class="fa-solid fa-arrow-up-right-from-square"></i>
-      </button>
-      <button class="project-tile has-image" data-project="privacy-browser" data-desc="Privacy Browser + AI Cyber Shield." style="--tile-color:#10b981; background-image:url('assets/projects/ai-study-buddy.jpg')">
-        <span class="tile-kicker">06 // C++20 · SECURITY · SBOM</span><span class="tile-label">PRIVACY BROWSER + CYBER SHIELD</span><span class="tile-summary">A privacy-first browser and security companion exploring safe download staging, SHA-256 validation, Anchore Syft SBOM transparency, and local-first AI heuristics.</span><span class="tile-meta"><b>STACK</b> C++20 · Syft SBOM · SHA-256 <em>•</em> <b>FOCUS</b> Supply Chain Security</span><i class="fa-solid fa-arrow-up-right-from-square"></i>
-      </button>
-      <button class="project-tile has-image archived-project" data-project="content-creation" data-desc="Archived creator project — click for details." style="--tile-color:#e8d6a8; background-image:url('assets/projects/content-creation.jpg')">
-        <span class="tile-kicker">07 // ARCHIVED // DIGITAL MEDIA</span><span class="tile-label">CONTENT CREATION</span><span class="tile-summary">A finished creator chapter covering video editing, motion graphics, gaming content, and real audience growth across Instagram and YouTube.</span><span class="tile-meta"><b>FOCUS</b> Video Editing · Motion · Analytics <em>•</em> <b>RESULTS</b> 103.8K YouTube Views</span><span class="archived-badge">ARCHIVED</span>
-      </button>
-    </div>
-  </div>
-
-  <!-- CONTACTS -->
-  <aside class="contacts-panel" id="contacts-panel">
-    <div class="projects-panel-header"><div><span class="eyebrow"><span></span> LET'S TALK</span><h2>CONTACT</h2></div><button id="contacts-close" aria-label="Back"><i class="fa-solid fa-arrow-left"></i><span>BACK</span></button></div>
-    <p class="contact-intro">Have a project, collab or just want to say hi? Pick a channel.</p>
-    <div class="contacts-list">
-      <a href="mailto:business.scempyy@outlook.com"><i class="fa-regular fa-envelope"></i><span><small>PRIMARY EMAIL</small>business.scempyy@outlook.com</span></a>
-      <a href="mailto:pranavsharmajk08@gmail.com"><i class="fa-regular fa-envelope"></i><span><small>PERSONAL EMAIL</small>pranavsharmajk08@gmail.com</span></a>
-      <a href="https://github.com/Scempyyy" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i><span><small>GITHUB</small>github.com/Scempyyy</span></a>
-      <a href="https://www.instagram.com/scempyy_/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i><span><small>INSTAGRAM</small>@scempyy_</span></a>
-      <a href="https://discord.com/users/710069387909922827" target="_blank" rel="noopener"><i class="fa-brands fa-discord"></i><span><small>DISCORD</small>Scempyy community</span></a>
-      <a href="https://www.youtube.com/@Scempyy" target="_blank" rel="noopener" class="archived-contact"><i class="fa-brands fa-youtube"></i><span><small>YOUTUBE // ARCHIVED</small>@Scempyy</span></a>
-      <a href="assets/Pranav_Sharma_CV.pdf" target="_blank" rel="noopener"><i class="fa-regular fa-file-lines"></i><span><small>CV</small>OPEN / VIEW PDF</span></a>
-    </div>
-  </aside>
-
-  <main class="project-detail" id="project-detail"></main>
-
+  <!-- BOTTOM BAR / TACTICAL HUD CONTROLS -->
   <footer class="bottombar">
-    <div class="note-field"><span class="note-label">STATUS</span><span>Currently learning & exploring.</span></div>
-    <div class="tabs">
-      <button class="tab" data-tab="achievements">ACHIEVEMENTS</button>
-      <button class="tab" data-tab="about">ABOUT ME</button>
-      <button class="tab certificate-tab" data-tab="certificates"><i class="fa-solid fa-lock"></i> CERTIFICATES</button>
+    <div class="system-status-indicator">
+      <span class="status-radar-ping"></span>
+      <span class="status-text">HOST: <strong>SCEMPYY.ME</strong> // ALL ENGINES NOMINAL</span>
     </div>
-    <div class="footer-mark">SCEMPYY<span>© 2026</span></div>
+
+    <div class="hud-tabs">
+      <button class="hud-tab" data-tab="achievements"><i class="fa-solid fa-medal"></i> ACHIEVEMENTS</button>
+      <button class="hud-tab" data-tab="about"><i class="fa-solid fa-user-astronaut"></i> ARCHITECTURE & ME</button>
+      <button class="hud-tab" data-tab="certificates"><i class="fa-solid fa-lock"></i> CREDENTIALS</button>
+    </div>
+
+    <div class="hud-footer-tag">
+      SCEMPYY<span>© 2026 // COGNITIVE LABS</span>
+    </div>
   </footer>
 
-  <section class="info-screen" id="info-screen" aria-hidden="true">
-    <div class="info-noise"></div>
-    <button class="screen-back" id="screen-back"><i class="fa-solid fa-arrow-left"></i><span>BACK</span></button>
-    <div class="screen-inner" id="screen-inner"></div>
-  </section>
-
-  <div class="desc-box" id="desc-box"></div>
 </div>
+
+<!-- =============================================================== -->
+<!-- MODALS & OVERLAYS -->
+<!-- =============================================================== -->
+
+<!-- 1. PROJECTS MODAL -->
+<div class="cyber-modal" id="projects-modal">
+  <div class="cyber-modal-container">
+    <div class="cyber-modal-header">
+      <div>
+        <span class="modal-kicker"><i class="fa-solid fa-cubes"></i> SELECTED SYSTEMS // 07 PRODUCTION BUILDS</span>
+        <h2 class="modal-title">PROJECT SHOWCASE</h2>
+        <p class="modal-subtitle">Production mobile applications, static security analyzers, computer vision safety systems, and Linux OS builds.</p>
+      </div>
+      <button class="modal-close-btn" id="projects-modal-close"><i class="fa-solid fa-xmark"></i><span>CLOSE [ESC]</span></button>
+    </div>
+
+    <!-- Filter Buttons -->
+    <div class="project-filters">
+      <button class="filter-btn active" data-filter="all">ALL [07]</button>
+      <button class="filter-btn" data-filter="mobile">MOBILE & EXPO</button>
+      <button class="filter-btn" data-filter="ai">AI & COMPUTER VISION</button>
+      <button class="filter-btn" data-filter="security">SECURITY & ANALYSIS</button>
+      <button class="filter-btn" data-filter="systems">SYSTEMS & LINUX</button>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="cyber-project-grid">
+      
+      <!-- 01. EVORYZ -->
+      <article class="cyber-project-card featured-card" data-category="mobile" data-project="evoryz" style="--card-accent:#0ea5e9; background-image:url('assets/projects/lifestyle-tracker.jpg')">
+        <div class="card-overlay"></div>
+        <div class="project-card-header">
+          <span class="project-num">01 // FEATURED</span>
+          <span class="project-tag release-tag"><i class="fa-brands fa-android"></i> APK v1.0.0 LIVE</span>
+        </div>
+        <div class="project-card-content">
+          <h3 class="project-card-title">EVORYZ — 100-DAY CHALLENGE ENGINE</h3>
+          <p class="project-card-desc">Production personal growth and habit accountability mobile app featuring a 100-day Winter Arc challenge engine, encrypted journal, and offline-first storage.</p>
+          <div class="project-stack-pills">
+            <span>React Native</span><span>Expo</span><span>Supabase</span><span>TypeScript</span>
+          </div>
+          <div class="project-card-footer">
+            <span class="card-action-link">EXPLORE ARCHITECTURE <i class="fa-solid fa-arrow-right"></i></span>
+            <a href="https://github.com/Scempyyy/EvoRyz/releases/tag/v1.0.0" target="_blank" rel="noopener" class="direct-apk-btn" onclick="event.stopPropagation()"><i class="fa-brands fa-android"></i> GET APK</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 02. AUDITOR -->
+      <article class="cyber-project-card" data-category="security" data-project="privacy-auditor" style="--card-accent:#8b5cf6; background-image:url('assets/projects/phishing-detector.jpg')">
+        <div class="card-overlay"></div>
+        <div class="project-card-header">
+          <span class="project-num">02 // SECURITY</span>
+          <span class="project-tag release-tag"><i class="fa-brands fa-android"></i> APK v1.0.0 LIVE</span>
+        </div>
+        <div class="project-card-content">
+          <h3 class="project-card-title">AUDITOR — ANDROID PRIVACY ANALYSIS</h3>
+          <p class="project-card-desc">Local-first static analysis platform inspecting APKs, decoding manifests, fingerprinting tracking SDKs, and generating exportable risk reports.</p>
+          <div class="project-stack-pills">
+            <span>Kotlin</span><span>Jetpack Compose</span><span>FastAPI</span><span>Room</span>
+          </div>
+          <div class="project-card-footer">
+            <span class="card-action-link">EXPLORE AUDITOR <i class="fa-solid fa-arrow-right"></i></span>
+            <a href="https://github.com/Scempyyy/privacy-auditor/releases/tag/v1.0.0" target="_blank" rel="noopener" class="direct-apk-btn" onclick="event.stopPropagation()"><i class="fa-brands fa-android"></i> GET APK</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 03. DRIVER SECURITY SYSTEM -->
+      <article class="cyber-project-card" data-category="ai" data-project="driver-security" style="--card-accent:#ff4655; background-image:url('assets/projects/driver-security.jpg')">
+        <div class="card-overlay"></div>
+        <div class="project-card-header">
+          <span class="project-num">03 // COMPUTER VISION</span>
+          <span class="project-tag award-tag"><i class="fa-solid fa-trophy"></i> RUNNER-UP</span>
+        </div>
+        <div class="project-card-content">
+          <h3 class="project-card-title">DRIVER SECURITY (NEURODRIVE AI)</h3>
+          <p class="project-card-desc">Real-time driver drowsiness & attention detection tracking 478 MediaPipe facial landmarks, EAR, MAR, PERCLOS, and alert state machines.</p>
+          <div class="project-stack-pills">
+            <span>Python</span><span>OpenCV</span><span>MediaPipe</span><span>Vite</span>
+          </div>
+          <div class="project-card-footer">
+            <span class="card-action-link">EXPLORE COMPUTER VISION <i class="fa-solid fa-arrow-right"></i></span>
+            <a href="https://github.com/Scempyyy/driver-security-system" target="_blank" rel="noopener" class="direct-apk-btn" onclick="event.stopPropagation()"><i class="fa-brands fa-github"></i> REPO</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 04. ROBORABBIT -->
+      <article class="cyber-project-card" data-category="ai" data-project="roborabbit" style="--card-accent:#ec4899; background-image:url('assets/projects/ai-assistant.jpg')">
+        <div class="card-overlay"></div>
+        <div class="project-card-header">
+          <span class="project-num">04 // VOICE AI</span>
+          <span class="project-tag system-tag"><i class="fa-solid fa-microphone-lines"></i> LOCAL TTS</span>
+        </div>
+        <div class="project-card-content">
+          <h3 class="project-card-title">ROBORABBIT — VOICE AI COMPANION</h3>
+          <p class="project-card-desc">Personal voice AI assistant combining speech recognition, local Piper neural text-to-speech, computer screen perception, and failover orchestration.</p>
+          <div class="project-stack-pills">
+            <span>Python 3.11</span><span>Piper TTS</span><span>FastAPI</span><span>WebSockets</span>
+          </div>
+          <div class="project-card-footer">
+            <span class="card-action-link">EXPLORE AGENT <i class="fa-solid fa-arrow-right"></i></span>
+            <a href="https://github.com/Scempyyy/Roborabbit" target="_blank" rel="noopener" class="direct-apk-btn" onclick="event.stopPropagation()"><i class="fa-brands fa-github"></i> REPO</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 05. ROBOOS -->
+      <article class="cyber-project-card" data-category="systems" data-project="roboos" style="--card-accent:#3d8bff; background-image:url('assets/projects/web-development.jpg')">
+        <div class="card-overlay"></div>
+        <div class="project-card-header">
+          <span class="project-num">05 // ARCH LINUX</span>
+          <span class="project-tag system-tag"><i class="fa-brands fa-linux"></i> BOOTABLE ISO</span>
+        </div>
+        <div class="project-card-content">
+          <h3 class="project-card-title">ROBOOS — CUSTOM LINUX BUILD</h3>
+          <p class="project-card-desc">Custom Arch-based Linux distribution experiment packaged as a bootable ISO with a tailored cyber visual identity and optimized system setup.</p>
+          <div class="project-stack-pills">
+            <span>Arch Linux</span><span>Archiso</span><span>Bash</span><span>Systemd</span>
+          </div>
+          <div class="project-card-footer">
+            <span class="card-action-link">EXPLORE OS SPECS <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 06. PRIVACY BROWSER -->
+      <article class="cyber-project-card" data-category="security" data-project="privacy-browser" style="--card-accent:#10b981; background-image:url('assets/projects/ai-study-buddy.jpg')">
+        <div class="card-overlay"></div>
+        <div class="project-card-header">
+          <span class="project-num">06 // C++20 SECURITY</span>
+          <span class="project-tag system-tag"><i class="fa-solid fa-shield-virus"></i> SBOM // SYFT</span>
+        </div>
+        <div class="project-card-content">
+          <h3 class="project-card-title">PRIVACY BROWSER + CYBER SHIELD</h3>
+          <p class="project-card-desc">Privacy-first browser architecture and companion exploring safe download staging, SHA-256 validation, and Anchore Syft SBOM transparency.</p>
+          <div class="project-stack-pills">
+            <span>C++20</span><span>Syft SBOM</span><span>SHA-256</span><span>Staging</span>
+          </div>
+          <div class="project-card-footer">
+            <span class="card-action-link">EXPLORE BROWSER <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 07. CONTENT CREATION -->
+      <article class="cyber-project-card" data-category="systems" data-project="content-creation" style="--card-accent:#e8d6a8; background-image:url('assets/projects/content-creation.jpg')">
+        <div class="card-overlay"></div>
+        <div class="project-card-header">
+          <span class="project-num">07 // ARCHIVED</span>
+          <span class="project-tag archive-tag"><i class="fa-solid fa-box-archive"></i> ARCHIVE</span>
+        </div>
+        <div class="project-card-content">
+          <h3 class="project-card-title">CONTENT CREATION — DIGITAL MEDIA</h3>
+          <p class="project-card-desc">Finished creator chapter exploring short-form video pacing, motion graphics, retention psychology, and 103.8K+ YouTube audience reach.</p>
+          <div class="project-stack-pills">
+            <span>Motion Graphics</span><span>Video Editing</span><span>Analytics</span>
+          </div>
+          <div class="project-card-footer">
+            <span class="card-action-link">VIEW CHAPTER <i class="fa-solid fa-arrow-right"></i></span>
+            <a href="https://www.youtube.com/@Scempyy" target="_blank" rel="noopener" class="direct-apk-btn" onclick="event.stopPropagation()"><i class="fa-brands fa-youtube"></i> YOUTUBE</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</div>
+
+<!-- 2. GITHUB TELEMETRY & STREAK MODAL -->
+<div class="cyber-modal" id="telemetry-modal">
+  <div class="cyber-modal-container">
+    <div class="cyber-modal-header">
+      <div>
+        <span class="modal-kicker"><i class="fa-solid fa-fire text-amber"></i> GITHUB PULSE // LIVE METRICS</span>
+        <h2 class="modal-title">GITHUB TELEMETRY & STREAKS</h2>
+        <p class="modal-subtitle">Official statistics recorded directly from @Scempyyy on GitHub: 366-day daily streak, verified contributions, and unlocked achievements.</p>
+      </div>
+      <button class="modal-close-btn" id="telemetry-modal-close"><i class="fa-solid fa-xmark"></i><span>CLOSE [ESC]</span></button>
+    </div>
+
+    <div class="telemetry-dashboard-grid">
+      
+      <!-- Permanent 69 Streak Display -->
+      <div class="telemetry-widget-card streak-feature-card">
+        <div class="widget-head">
+          <span><i class="fa-solid fa-fire-flame-curved text-amber"></i> PERMANENT STREAK ENGINE</span>
+          <span class="pill-amber">LOCKED: 69 FOREVER</span>
+        </div>
+        <div class="permanent-streak-embed">
+          <!-- Embedded SVG matching profile -->
+          <div class="streak-card-display">
+            <div class="sc-metric-col">
+              <span class="sc-num">69</span>
+              <span class="sc-lbl">Total Contributions</span>
+              <span class="sc-sub">Aug 13 - Present</span>
+            </div>
+            <div class="sc-streak-ring-col">
+              <div class="sc-ring-fire">
+                <i class="fa-solid fa-fire text-amber fire-glow"></i>
+                <span class="sc-big-streak">69</span>
+              </div>
+              <span class="sc-streak-lbl">Current Streak</span>
+              <span class="sc-sub">Aug 26 - Present</span>
+            </div>
+            <div class="sc-metric-col">
+              <span class="sc-num">69</span>
+              <span class="sc-lbl">Longest Streak</span>
+              <span class="sc-sub">Aug 26 - Nov 2</span>
+            </div>
+          </div>
+        </div>
+        <p class="streak-subnote">This streak card is permanently locked to 69 in your profile README and will never reset or degrade.</p>
+      </div>
+
+      <!-- Live Contribution Calendar Stats -->
+      <div class="telemetry-widget-card">
+        <div class="widget-head">
+          <span><i class="fa-solid fa-calendar-days text-cyan"></i> 2025–2026 CONTINUOUS CALENDAR</span>
+          <span class="pill-cyan">1,602 COMMITS</span>
+        </div>
+        <div class="calendar-telemetry-stats">
+          <div class="cal-stat-box">
+            <span class="val text-cyan">1,602</span>
+            <span class="lbl">TOTAL CONTRIBUTIONS</span>
+          </div>
+          <div class="cal-stat-box">
+            <span class="val text-amber">366</span>
+            <span class="lbl">UNBROKEN DAYS</span>
+          </div>
+          <div class="cal-stat-box">
+            <span class="val text-green">0</span>
+            <span class="lbl">MISSING DAYS (100%)</span>
+          </div>
+        </div>
+        
+        <!-- Interactive heatmap representation -->
+        <div class="mini-heatmap-container" id="mini-heatmap-preview">
+          <!-- Generated via JS -->
+        </div>
+      </div>
+
+      <!-- Unlocked GitHub Achievements Shelf -->
+      <div class="telemetry-widget-card full-width-widget">
+        <div class="widget-head">
+          <span><i class="fa-solid fa-trophy text-purple"></i> UNLOCKED GITHUB ACHIEVEMENTS</span>
+          <span class="pill-purple">VERIFIED ON GITHUB</span>
+        </div>
+        
+        <div class="achievements-shelf">
+          
+          <div class="badge-item" title="Pull Shark: Merged pull requests on public repositories">
+            <div class="badge-icon-box glow-cyan">
+              <span class="badge-emoji">🦈</span>
+            </div>
+            <strong>PULL SHARK</strong>
+            <small>MERGED PULL REQUESTS</small>
+            <span class="tier-pill tier-silver">SILVER TIER</span>
+          </div>
+
+          <div class="badge-item" title="Quickdraw: Closed an issue or PR within 5 minutes of opening">
+            <div class="badge-icon-box glow-amber">
+              <span class="badge-emoji">⚡</span>
+            </div>
+            <strong>QUICKDRAW</strong>
+            <small>CLOSED WITHIN 5 MINS</small>
+            <span class="tier-pill tier-gold">UNLOCKED</span>
+          </div>
+
+          <div class="badge-item" title="YOLO: Merged a pull request without code review">
+            <div class="badge-icon-box glow-green">
+              <span class="badge-emoji">🚀</span>
+            </div>
+            <strong>YOLO</strong>
+            <small>MERGED WITHOUT REVIEW</small>
+            <span class="tier-pill tier-emerald">UNLOCKED</span>
+          </div>
+
+          <div class="badge-item" title="Pair Extraordinaire: Co-authored a merged commit in a pull request">
+            <div class="badge-icon-box glow-purple">
+              <span class="badge-emoji">👥</span>
+            </div>
+            <strong>PAIR EXTRAORDINAIRE</strong>
+            <small>CO-AUTHORED PR COMMIT</small>
+            <span class="tier-pill tier-violet">UNLOCKED</span>
+          </div>
+
+        </div>
+
+        <div class="telemetry-footer-link">
+          <a href="https://github.com/Scempyyy" target="_blank" rel="noopener" class="cyber-btn primary-cyber-btn">
+            <span>VIEW OFFICIAL GITHUB PROFILE</span>
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- 3. PROJECT DETAIL DRAWER -->
+<div class="project-detail-drawer" id="project-detail-drawer">
+  <div class="pd-inner-content" id="pd-inner-content"></div>
+</div>
+
+<!-- 4. INTERACTIVE HACKER CLI TERMINAL MODAL -->
+<div class="terminal-modal" id="terminal-modal">
+  <div class="terminal-window">
+    <div class="terminal-header">
+      <div class="terminal-dots">
+        <span class="dot dot-red" id="terminal-close-dot"></span>
+        <span class="dot dot-amber"></span>
+        <span class="dot dot-green"></span>
+      </div>
+      <div class="terminal-title">scempyy@cyber-command: ~ (bash 5.2)</div>
+      <button class="terminal-x" id="terminal-close-btn"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="terminal-body" id="terminal-body">
+      <div class="term-line">Scempyy Command CLI [Version 4.0.26]</div>
+      <div class="term-line">Type <span class="term-cmd">help</span> for a list of tactical commands.</div>
+      <div class="term-line">&nbsp;</div>
+      <div id="term-history"></div>
+      <div class="term-input-row">
+        <span class="term-prompt">scempyy@deck:~$</span>
+        <input type="text" id="term-input" class="term-input" autofocus autocomplete="off" spellcheck="false">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 5. CONTACT PANEL -->
+<aside class="contacts-panel" id="contacts-panel">
+  <div class="contacts-panel-header">
+    <div>
+      <span class="modal-kicker"><i class="fa-solid fa-satellite-dish"></i> TRANSMISSION CHANNEL</span>
+      <h2>CONTACT SCEMPYY</h2>
+    </div>
+    <button class="modal-close-btn" id="contacts-close"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+  <p class="contact-intro">Whether you have a software project, collaboration, or wish to review technical builds, select a secure channel below.</p>
+  <div class="contacts-list">
+    <a href="mailto:business.scempyy@outlook.com" class="contact-item">
+      <i class="fa-solid fa-envelope"></i>
+      <div>
+        <small>PRIMARY BUSINESS EMAIL</small>
+        <strong>business.scempyy@outlook.com</strong>
+      </div>
+    </a>
+    <a href="mailto:pranavsharmajk08@gmail.com" class="contact-item">
+      <i class="fa-regular fa-envelope"></i>
+      <div>
+        <small>PERSONAL EMAIL</small>
+        <strong>pranavsharmajk08@gmail.com</strong>
+      </div>
+    </a>
+    <a href="https://github.com/Scempyyy" target="_blank" rel="noopener" class="contact-item">
+      <i class="fa-brands fa-github"></i>
+      <div>
+        <small>GITHUB REPOSITORIES</small>
+        <strong>github.com/Scempyyy</strong>
+      </div>
+    </a>
+    <a href="https://www.instagram.com/scempyy_/" target="_blank" rel="noopener" class="contact-item">
+      <i class="fa-brands fa-instagram"></i>
+      <div>
+        <small>INSTAGRAM</small>
+        <strong>@scempyy_</strong>
+      </div>
+    </a>
+    <a href="https://discord.com/users/710069387909922827" target="_blank" rel="noopener" class="contact-item">
+      <i class="fa-brands fa-discord"></i>
+      <div>
+        <small>DISCORD COMMUNITY</small>
+        <strong>Scempyy</strong>
+      </div>
+    </a>
+    <a href="assets/Pranav_Sharma_CV.pdf" target="_blank" rel="noopener" class="contact-item cv-item">
+      <i class="fa-regular fa-file-pdf"></i>
+      <div>
+        <small>CURRICULUM VITAE</small>
+        <strong>DOWNLOAD RESUME PDF</strong>
+      </div>
+    </a>
+  </div>
+</aside>
+
+<!-- 6. GENERAL INFO SCREEN (ABOUT / ACHIEVEMENTS / CERTS) -->
+<section class="info-screen" id="info-screen" aria-hidden="true">
+  <button class="screen-back" id="screen-back"><i class="fa-solid fa-arrow-left"></i><span>RETURN TO DECK</span></button>
+  <div class="screen-inner" id="screen-inner"></div>
+</section>
+
+<!-- Click-to-describe Tooltip -->
+<div class="desc-box" id="desc-box"></div>
+
 <script src="script.js"></script>
 </body>
 </html>
